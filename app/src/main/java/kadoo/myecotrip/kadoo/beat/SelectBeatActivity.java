@@ -1,5 +1,7 @@
 package kadoo.myecotrip.kadoo.beat;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.Spinner;
 
 import kadoo.myecotrip.kadoo.R;
 import kadoo.myecotrip.kadoo.beat.rowData.CircleRowData;
+import kadoo.myecotrip.kadoo.nfc.LocationActivity;
 
 public class SelectBeatActivity extends AppCompatActivity {
 
@@ -25,11 +28,20 @@ public class SelectBeatActivity extends AppCompatActivity {
         spRange = findViewById(R.id.spRange);
         spBeats = findViewById(R.id.spBeat);
         setCircleData();
+        findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                start(LocationActivity.class);
+            }
+        });
     }
-
+    private void start(Class<? extends Activity> token) {
+        Intent intent = new Intent(this, token);
+        startActivity(intent);
+    }
     private void setCircleData() {
 
-        ArrayAdapter<CircleRowData> arrayAdapter=new ArrayAdapter<CircleRowData>(this,R.l)
+       /* ArrayAdapter<CircleRowData> arrayAdapter=new ArrayAdapter<CircleRowData>(this,R.l);
         spCircle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -40,7 +52,7 @@ public class SelectBeatActivity extends AppCompatActivity {
             public void onNothingSelected(AdapterView<?> adapterView) {
 
             }
-        });
+        });*/
     }
 
     private void setDivisiondata() {

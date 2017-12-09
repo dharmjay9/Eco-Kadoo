@@ -16,5 +16,31 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    <style name="proceedButtonStyle">
+        <item name="android:textSize">@dimen/header_text</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="TextStyleFullBlackSize" parent="android:TextAppearance.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="fontPath">fonts/AVENIRLTSTD-BOOK.ttf</item>
+    </style>
+    <style name="TextStyleBlackSize" parent="android:TextAppearance.Large">
+        <item name="android:textColor">@color/half_black</item>
+        <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="fontPath">fonts/AVENIRLTSTD-BOOK.ttf</item>
+    </style>
+    <style name="TextStyleBlack" parent="android:TextAppearance.Large">
+        <item name="android:textColor">@color/half_black</item>
+        <item name="android:textSize">@dimen/head_title_text</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="fontPath">fonts/AVENIRLTSTD-BOOK.ttf</item>
+    </style>
 
 </resources>
