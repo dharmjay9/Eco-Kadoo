@@ -1,20 +1,19 @@
 package kadoo.myecotrip.kadoo.base;
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import kadoo.myecotrip.kadoo.common.MyEcoTripUser;
+import kadoo.myecotrip.kadoo.common.KadooLocalUser;
 import kadoo.myecotrip.kadoo.network.RestClient;
 
 
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected RestClient restClient;
-    protected MyEcoTripUser converbizUser;
+    protected KadooLocalUser converbizUser;
     private ProgressDialog mProgressDialog;
 
     private static final String HEADLESS_FRAGMENT = "head_less_fragment";
@@ -28,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initView();
         restClient=new RestClient();
-        converbizUser=MyEcoTripUser.getInstance(this);
+        converbizUser= KadooLocalUser.getInstance(this);
     }
 
     protected void displayProgressDialog(){

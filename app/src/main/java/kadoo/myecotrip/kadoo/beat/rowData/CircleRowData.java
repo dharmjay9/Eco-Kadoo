@@ -40,4 +40,9 @@ public class CircleRowData {
     public void setIsActive(int isActive) {
         this.isActive = isActive;
     }
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

@@ -8,10 +8,10 @@ import android.preference.PreferenceManager;
  * Created by divum on 4/3/17.
  */
 
-public class MyEcoTripUser {
+public class KadooLocalUser {
 
     private static SharedPreferences sharedPreferences;
-    private static MyEcoTripUser converbizUser;
+    private static KadooLocalUser converbizUser;
     private static final String EMAIL_ID = "email_id";
     private static final String USER_ID = "user_id";
     private static final String FIRST_NAME = "first_name";
@@ -21,9 +21,9 @@ public class MyEcoTripUser {
     private static final String ORDER_ID = "order_id";
 
 
-    public static MyEcoTripUser getInstance(Context context) {
+    public static KadooLocalUser getInstance(Context context) {
         if (converbizUser == null) {
-            converbizUser = new MyEcoTripUser();
+            converbizUser = new KadooLocalUser();
             sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         }
         return converbizUser;

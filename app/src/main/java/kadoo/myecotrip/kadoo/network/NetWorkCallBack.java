@@ -16,9 +16,9 @@ public class NetWorkCallBack<T extends CommonModel> implements Callback<T> {
 
 
     private static final String TAG = NetWorkCallBack.class.getName();
-    private MyEcoTripCallBack<T> mUiCallBack;
+    private KadooCallBack<T> mUiCallBack;
 
-    NetWorkCallBack(MyEcoTripCallBack<T> mUiCallBack) {
+    NetWorkCallBack(KadooCallBack<T> mUiCallBack) {
         this.mUiCallBack = mUiCallBack;
     }
 

@@ -4,9 +4,9 @@ import android.app.Application;
 import android.content.Context;
 
 
-public class MyEcoTripApplication extends Application {
+public class KadooAplication extends Application {
     private static Context context;
-    private static MyEcoTripApplication mtEcoTrippp;
+    private static KadooAplication mtEcoTrippp;
 
     @Override
     public void onCreate() {
@@ -18,7 +18,7 @@ public class MyEcoTripApplication extends Application {
         return context;
     }
 
-    public static MyEcoTripApplication getMyEcoTripApp() {
+    public static KadooAplication getMyEcoTripApp() {
         return mtEcoTrippp;
     }
 

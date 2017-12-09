@@ -5,4 +5,6 @@ package kadoo.myecotrip.kadoo.beat.rowData;
  */
 
 public class DivisionRowData extends CircleRowData {
+
+
 }

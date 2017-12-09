@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import kadoo.myecotrip.kadoo.common.MyEcoTripUser;
+import kadoo.myecotrip.kadoo.common.KadooLocalUser;
 import kadoo.myecotrip.kadoo.network.RestClient;
 
 
@@ -16,7 +16,7 @@ public abstract class BaseFragment extends Fragment {
 
     protected RestClient mRestClient;
     protected ProgressDialog mProgressDialog;
-    protected MyEcoTripUser mConverbizUser;
+    protected KadooLocalUser mConverbizUser;
     protected RestClient restClient;
 
     @Override
@@ -24,7 +24,7 @@ public abstract class BaseFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mRestClient=new RestClient();
         restClient=new RestClient();
-        mConverbizUser=MyEcoTripUser.getInstance(getActivity());
+        mConverbizUser= KadooLocalUser.getInstance(getActivity());
 
     }
 

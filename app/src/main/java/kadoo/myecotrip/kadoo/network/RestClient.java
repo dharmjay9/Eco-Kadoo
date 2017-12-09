@@ -2,10 +2,16 @@ package kadoo.myecotrip.kadoo.network;
 
 
 import java.io.IOException;
-import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
+
+import kadoo.myecotrip.kadoo.beat.rowData.BeatResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.BeatsRequest;
+import kadoo.myecotrip.kadoo.beat.rowData.CircleResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.DivisionResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.RangeResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionResponse;
+import kadoo.myecotrip.kadoo.login.LoginRequest;
+import kadoo.myecotrip.kadoo.login.LoginResponse;
 import okhttp3.OkHttpClient;
-import okhttp3.Response;
 import retrofit2.Call;
 import retrofit2.GsonConverterFactory;
 import retrofit2.Retrofit;
@@ -18,12 +24,10 @@ import retrofit2.Retrofit;
 public class RestClient implements INetwork {
 
     ApiCall iNetwork;
+    private static RestClient restClient;
 
-    //http://myecotrip.com/myecotrip_api/public/index.php/api/v1/signUp
     public RestClient() {
-        // String url = "http://myecotrip.com/myecotrip_api/public/index.php/api/v1/";
-        // String url = "http://myecotrip.com/myecotrip_api_new/public/index.php/api/v1/";
-        String url = "http://35.154.28.131/myecotripapis/public/index.php/";
+        String url = "http://35.154.239.203/kaadoo/public/index.php/api/v1/";
         Retrofit retrofit = new Retrofit.Builder()
                 .client(new OkHttpClient())
                 .baseUrl(url)
@@ -32,40 +36,53 @@ public class RestClient implements INetwork {
         iNetwork = retrofit.create(ApiCall.class);
     }
 
-
-    /**
-     * Add common parameter in Get API
-     *
-     * @return
-     */
-    private OkHttpClient.Builder getOkHttpClient() {
-
-        OkHttpClient.Builder httpClient =
-                new OkHttpClient.Builder();
-        httpClient.addInterceptor(new Interceptor() {
-            @Override
-            public Response intercept(Chain chain) throws IOException {
-                okhttp3.Request original = chain.request();
-                HttpUrl originalHttpUrl = original.url();
-                HttpUrl url = originalHttpUrl.newBuilder()
-                        .addQueryParameter("userPassword", "Capgeminiapi")
-                        .addQueryParameter("accountName", "lakmepilot")
-                        .addQueryParameter("appVersion", "v100")
-                        .addQueryParameter("userName", "api_capgemini")
-                        .build();
-                okhttp3.Request.Builder requestBuilder = original.newBuilder()
-                        .url(url);
-
-                okhttp3.Request request = requestBuilder.build();
-                return chain.proceed(request);
-            }
-        });
-        return httpClient;
-
+    public static RestClient getInstance() {
+        if (restClient == null) {
+            restClient = new RestClient();
+        }
+        return restClient;
     }
 
 
+    @Override
+    public void doLogin(LoginRequest registerRequest, KadooCallBack<LoginResponse> responseMyEcoTripCallBack) {
 
+    }
 
+    @Override
+    public void getCircle(KadooCallBack<CircleResponse> circleResponseKadooCallBack) {
+
+        Call<CircleResponse> circleResponseCall = iNetwork.getAllCircle();
+        circleResponseCall.enqueue(new NetWorkCallBack<CircleResponse>(circleResponseKadooCallBack));
+
+    }
+
+    @Override
+    public void getDivision(String circleId, KadooCallBack<DivisionResponse> circleResponseKadooCallBack) {
+
+        Call<DivisionResponse> circleResponseCall = iNetwork.getDivision(circleId);
+        circleResponseCall.enqueue(new NetWorkCallBack<>(circleResponseKadooCallBack));
+    }
+
+    @Override
+    public void getSubDivision(String divisionId, KadooCallBack<SubDivisionResponse> circleResponseKadooCallBack) {
+
+        Call<SubDivisionResponse> subDivisionResponseCall = iNetwork.getSubDivision(divisionId);
+        subDivisionResponseCall.enqueue(new NetWorkCallBack<>(circleResponseKadooCallBack));
+    }
+
+    @Override
+    public void getRange(String subDivisionId, KadooCallBack<RangeResponse> circleResponseKadooCallBack) {
+
+        Call<RangeResponse> subDivisionResponseCall = iNetwork.getRange(subDivisionId);
+        subDivisionResponseCall.enqueue(new NetWorkCallBack<>(circleResponseKadooCallBack));
+    }
+
+    @Override
+    public void getBeats(BeatsRequest beatsRequest, KadooCallBack<BeatResponse> circleResponseKadooCallBack) {
+
+        Call<BeatResponse> call = iNetwork.getBeats(beatsRequest);
+        call.enqueue(new NetWorkCallBack<>(circleResponseKadooCallBack));
+    }
 
 }

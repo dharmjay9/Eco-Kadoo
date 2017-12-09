@@ -7,12 +7,30 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
+import java.util.List;
+
 import kadoo.myecotrip.kadoo.R;
+import kadoo.myecotrip.kadoo.beat.rowData.BeatRowData;
+import kadoo.myecotrip.kadoo.beat.rowData.CircleResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.CircleRowData;
+import kadoo.myecotrip.kadoo.beat.rowData.DivisionResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.DivisionRowData;
+import kadoo.myecotrip.kadoo.beat.rowData.RangeRowData;
+import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionRowData;
+import kadoo.myecotrip.kadoo.network.ErrorCodes;
+import kadoo.myecotrip.kadoo.network.KadooCallBack;
+import kadoo.myecotrip.kadoo.network.RestClient;
 
 public class SelectBeatActivity extends AppCompatActivity {
 
     private Spinner spCircle, spDivision, spSubDivision, spRange, spBeats;
+    private String circleId, divisionId, subdivisionId, rangeId, pillerId;
+    private List<CircleRowData> circleRowDataList;
+    private List<DivisionRowData> divisionRowDataList;
+    private List<SubDivisionRowData> subDivisionRowDataList;
+    private List<RangeRowData> rangeRowDataList;
+    private List<BeatRowData> beatRowDataList;
 
 
     @Override
@@ -29,72 +47,152 @@ public class SelectBeatActivity extends AppCompatActivity {
 
     private void setCircleData() {
 
-        ArrayAdapter<CircleRowData> arrayAdapter=new ArrayAdapter<CircleRowData>(this,R.l)
-        spCircle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        RestClient.getInstance().getCircle(new KadooCallBack<CircleResponse>() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onFailure(String s, ErrorCodes errorCodes) {
 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onSuccess(CircleResponse circleResponse) {
 
+                circleRowDataList = circleResponse.getContent();
+                ArrayAdapter<CircleRowData> arrayAdapter = new ArrayAdapter<CircleRowData>(SelectBeatActivity.this, android.R.layout.simple_list_item_1, circleRowDataList);
+                spCircle.setAdapter(arrayAdapter);
+                spCircle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        circleId = String.valueOf(circleRowDataList.get(i).getId());
+                        setDivisiondata();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
             }
         });
+
     }
 
     private void setDivisiondata() {
-        spDivision.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+        RestClient.getInstance().getDivision(circleId, new KadooCallBack<DivisionResponse>() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onFailure(String s, ErrorCodes errorCodes) {
 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onSuccess(DivisionResponse divisionResponse) {
 
+                divisionRowDataList = divisionResponse.getContent();
+                ArrayAdapter<DivisionRowData> arrayAdapter = new ArrayAdapter(SelectBeatActivity.this, android.R.layout.simple_list_item_1, divisionRowDataList);
+                spDivision.setAdapter(arrayAdapter);
+                spDivision.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        
+                        setSubDivisionData();
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
             }
         });
+
     }
 
     private void setSubDivisionData() {
-        spSubDivision.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+
+        RestClient.getInstance().getCircle(new KadooCallBack<CircleResponse>() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onFailure(String s, ErrorCodes errorCodes) {
 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onSuccess(CircleResponse circleResponse) {
 
+                ArrayAdapter<CircleRowData> arrayAdapter = new ArrayAdapter<CircleRowData>(SelectBeatActivity.this, android.R.layout.simple_list_item_1, circleResponse.getContent());
+                spCircle.setAdapter(arrayAdapter);
+                spCircle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        setRangeData();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
             }
         });
     }
 
     private void setRangeData() {
-        spRange.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        RestClient.getInstance().getCircle(new KadooCallBack<CircleResponse>() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onFailure(String s, ErrorCodes errorCodes) {
 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onSuccess(CircleResponse circleResponse) {
 
+                ArrayAdapter<CircleRowData> arrayAdapter = new ArrayAdapter<CircleRowData>(SelectBeatActivity.this, android.R.layout.simple_list_item_1, circleResponse.getContent());
+                spCircle.setAdapter(arrayAdapter);
+                spCircle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        setBeats();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
             }
         });
     }
 
     private void setBeats() {
-        spBeats.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        RestClient.getInstance().getCircle(new KadooCallBack<CircleResponse>() {
             @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onFailure(String s, ErrorCodes errorCodes) {
 
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
+            public void onSuccess(CircleResponse circleResponse) {
 
+                ArrayAdapter<CircleRowData> arrayAdapter = new ArrayAdapter<CircleRowData>(SelectBeatActivity.this, android.R.layout.simple_list_item_1, circleResponse.getContent());
+                spCircle.setAdapter(arrayAdapter);
+                spCircle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+                        setDivisiondata();
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
             }
         });
     }

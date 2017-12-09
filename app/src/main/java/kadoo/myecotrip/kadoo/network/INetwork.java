@@ -1,8 +1,30 @@
 package kadoo.myecotrip.kadoo.network;
 
 
+import kadoo.myecotrip.kadoo.beat.rowData.BeatResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.BeatsRequest;
+import kadoo.myecotrip.kadoo.beat.rowData.CircleResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.DivisionResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.RangeResponse;
+import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionResponse;
+import kadoo.myecotrip.kadoo.login.LoginRequest;
+import kadoo.myecotrip.kadoo.login.LoginResponse;
 
 public interface INetwork {
+
+
+    void doLogin(LoginRequest registerRequest, KadooCallBack<LoginResponse> responseMyEcoTripCallBack);
+
+    void getCircle(KadooCallBack<CircleResponse> circleResponseKadooCallBack);
+
+    void getDivision(String divisionId, KadooCallBack<DivisionResponse> circleResponseKadooCallBack);
+
+    void getSubDivision(String subdivisionId, KadooCallBack<SubDivisionResponse> circleResponseKadooCallBack);
+
+    void getRange(String range, KadooCallBack<RangeResponse> circleResponseKadooCallBack);
+
+    void getBeats(BeatsRequest beatsRequest, KadooCallBack<BeatResponse> circleResponseKadooCallBack);
+
 
   /*  void doSignUp(RegisterRequest registerRequest, MyEcoTripCallBack<RegisterResponse> responseMyEcoTripCallBack);
 

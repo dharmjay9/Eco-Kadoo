@@ -7,7 +7,7 @@ import kadoo.myecotrip.kadoo.base.CommonModel;
  * Call UI thread after getting Data
  */
 
-public abstract class MyEcoTripCallBack<T extends CommonModel> implements UICallBack<T> {
+public abstract class KadooCallBack<T extends CommonModel> implements UICallBack<T> {
 
     public abstract void onFailure(String s, ErrorCodes errorCodes);
 
