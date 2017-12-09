@@ -13,4 +13,17 @@
         android:text="START ADDING Pillear "
         android:textAllCaps="true"
         android:textColor="@color/colorWhite" />
+
+    <Button
+        android:id="@+id/btnAddNextPiller"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonStartAddingPiller"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:background="@color/colorPrimary"
+        android:text="ADD NEXT PILLER"
+        android:textAllCaps="true"
+        android:textColor="@color/colorWhite" />
+
 </RelativeLayout>

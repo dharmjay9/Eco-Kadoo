@@ -11,7 +11,7 @@ import android.preference.PreferenceManager;
 public class KadooLocalUser {
 
     private static SharedPreferences sharedPreferences;
-    private static KadooLocalUser converbizUser;
+    private static KadooLocalUser kadooLocalUser;
     private static final String EMAIL_ID = "email_id";
     private static final String USER_ID = "user_id";
     private static final String FIRST_NAME = "first_name";
@@ -19,14 +19,15 @@ public class KadooLocalUser {
     private static final String COUNTRY = "country";
     private static final String MOBILE_NO = "mobile";
     private static final String ORDER_ID = "order_id";
+    private static final String SELECTED_CATEGORY = "selected_category";
 
 
     public static KadooLocalUser getInstance(Context context) {
-        if (converbizUser == null) {
-            converbizUser = new KadooLocalUser();
+        if (kadooLocalUser == null) {
+            kadooLocalUser = new KadooLocalUser();
             sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         }
-        return converbizUser;
+        return kadooLocalUser;
 
     }
 
@@ -87,10 +88,19 @@ public class KadooLocalUser {
         return sharedPreferences.getString(USER_ID, "");
     }
 
+    public void setSelectedCategory(String email) {
+        putString(SELECTED_CATEGORY, email);
+    }
+
+    public String getSelectedCategory() {
+        return sharedPreferences.getString(SELECTED_CATEGORY, "");
+    }
+
 
     private void putString(String key, String value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putString(key, value);
         editor.apply();
     }
+
 }

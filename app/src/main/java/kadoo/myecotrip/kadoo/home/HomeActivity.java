@@ -19,7 +19,9 @@ import android.view.View;
 import kadoo.myecotrip.kadoo.R;
 
 public class HomeActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, RefreshFragment {
+
+    private HomeFragment homeFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +49,17 @@ public class HomeActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction ft = fragmentManager.beginTransaction();
-        HomeFragment homeFragment = new HomeFragment();
+        homeFragment = new HomeFragment();
         ft.replace(R.id.container, homeFragment).commit();
 
     }
 
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (homeFragment != null) homeFragment.setButtonText();
+    }
 
     @Override
     public void onBackPressed() {
@@ -88,5 +96,10 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void refresh() {
+
     }
 }

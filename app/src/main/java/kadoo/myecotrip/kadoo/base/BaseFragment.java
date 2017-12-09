@@ -16,7 +16,7 @@ public abstract class BaseFragment extends Fragment {
 
     protected RestClient mRestClient;
     protected ProgressDialog mProgressDialog;
-    protected KadooLocalUser mConverbizUser;
+    protected KadooLocalUser kadooLocalUser;
     protected RestClient restClient;
 
     @Override
@@ -24,7 +24,7 @@ public abstract class BaseFragment extends Fragment {
         super.onCreate(savedInstanceState);
         mRestClient=new RestClient();
         restClient=new RestClient();
-        mConverbizUser= KadooLocalUser.getInstance(getActivity());
+        kadooLocalUser = KadooLocalUser.getInstance(getActivity());
 
     }
 

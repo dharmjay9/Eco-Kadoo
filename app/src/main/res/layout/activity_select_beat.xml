@@ -9,60 +9,66 @@
 
 
     <android.support.v4.widget.NestedScrollView
-        android:fillViewport="true"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <android.support.v7.widget.AppCompatSpinner
-                android:layout_marginTop="@dimen/spinner_margin"
                 android:id="@+id/spCircle"
-                android:entries="@array/ddummy"
-                android:layout_width="match_parent"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"/>
-            <android.support.v7.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_marginTop="@dimen/spinner_margin"
+                android:entries="@array/ddummy" />
+
+            <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spDivision"
-                android:entries="@array/ddummy"
-                android:layout_width="match_parent"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"/>
-            <android.support.v7.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_marginTop="@dimen/spinner_margin"
+                android:entries="@array/ddummy" />
+
+            <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spSubDivision"
-                android:entries="@array/ddummy"
-                android:layout_width="match_parent"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"/>
-            <android.support.v7.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_marginTop="@dimen/spinner_margin"
+                android:entries="@array/ddummy" />
+
+            <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spRange"
-                android:entries="@array/ddummy"
-                android:layout_width="match_parent"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"/>
-            <android.support.v7.widget.AppCompatSpinner
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:layout_marginTop="@dimen/spinner_margin"
+                android:entries="@array/ddummy" />
+
+            <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spBeat"
-                android:entries="@array/ddummy"
-                android:layout_width="match_parent"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
-                android:layout_height="wrap_content"/>
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="@dimen/spinner_margin"
+                android:entries="@array/ddummy" />
 
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
+
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btnConfirm"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:textColor="@color/colorWhite"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="CONFIRM" />
+        android:background="@color/colorPrimary"
+        android:text="CONFIRM"
+        android:textColor="@color/colorWhite" />
 </RelativeLayout>

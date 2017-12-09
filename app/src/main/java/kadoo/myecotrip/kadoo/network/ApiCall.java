@@ -29,10 +29,10 @@ interface ApiCall {
     Call<DivisionResponse> getDivision(@Path("circle_id") String circleId);
 
     @GET("getSubDivisions/{division_id}")
-    Call<SubDivisionResponse> getSubDivision(@Path("circle_id") String circleId);
+    Call<SubDivisionResponse> getSubDivision(@Path("division_id") String circleId);
 
     @GET("getRanges/{subdivision_id}")
-    Call<RangeResponse> getRange(@Path("circle_id") String circleId);
+    Call<RangeResponse> getRange(@Path("subdivision_id") String circleId);
 
     @POST("getBeats")
     Call<BeatResponse> getBeats(@Body BeatsRequest beatsRequest);

@@ -13,7 +13,7 @@ import kadoo.myecotrip.kadoo.network.RestClient;
 public abstract class BaseActivity extends AppCompatActivity {
 
     protected RestClient restClient;
-    protected KadooLocalUser converbizUser;
+    protected KadooLocalUser kadooLocalUser;
     private ProgressDialog mProgressDialog;
 
     private static final String HEADLESS_FRAGMENT = "head_less_fragment";
@@ -27,7 +27,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         initView();
         restClient=new RestClient();
-        converbizUser= KadooLocalUser.getInstance(this);
+        kadooLocalUser = KadooLocalUser.getInstance(this);
     }
 
     protected void displayProgressDialog(){

@@ -9,7 +9,7 @@
     <string name="repeat_password">Repeat Password</string>
     <string name="next">NEXT</string>
     <string name="register">REGISTER</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">Kadoo</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -27,4 +27,7 @@
         <item>A</item>
     </string-array>
     <string name="title_activity_add_pillar">AddPillarActivity</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">KADOO</string>
 </resources>
