@@ -7,6 +7,8 @@ import kadoo.myecotrip.kadoo.beat.rowData.CircleResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.DivisionResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.RangeResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionResponse;
+import kadoo.myecotrip.kadoo.beats.AddBeatsRequest;
+import kadoo.myecotrip.kadoo.beats.AddBeatsResponse;
 import kadoo.myecotrip.kadoo.login.LoginRequest;
 import kadoo.myecotrip.kadoo.login.LoginResponse;
 import retrofit2.Call;
@@ -18,7 +20,7 @@ import retrofit2.http.Query;
 
 interface ApiCall {
 
-    @POST
+    @POST("userSignIn")
     Call<LoginResponse> doLogin(@Body LoginRequest loginRequest);
 
     @GET("getCircles")
@@ -29,12 +31,15 @@ interface ApiCall {
     Call<DivisionResponse> getDivision(@Path("circle_id") String circleId);
 
     @GET("getSubDivisions/{division_id}")
-    Call<SubDivisionResponse> getSubDivision(@Path("circle_id") String circleId);
+    Call<SubDivisionResponse> getSubDivision(@Path("division_id") String circleId);
 
     @GET("getRanges/{subdivision_id}")
-    Call<RangeResponse> getRange(@Path("circle_id") String circleId);
+    Call<RangeResponse> getRange(@Path("subdivision_id") String circleId);
 
     @POST("getBeats")
     Call<BeatResponse> getBeats(@Body BeatsRequest beatsRequest);
+
+    @POST("addPillars")
+    Call<AddBeatsResponse> addPillears(@Body AddBeatsRequest addBeatsRequest);
 
 }

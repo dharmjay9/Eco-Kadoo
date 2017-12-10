@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Arbor-Tag</string>
+    <string name="app_name">Kaadoo</string>
     <string name="login_success">login success</string>
     <string name="login">LOGIN</string>
     <string name="Username">Username</string>
@@ -9,7 +9,7 @@
     <string name="repeat_password">Repeat Password</string>
     <string name="next">NEXT</string>
     <string name="register">REGISTER</string>
-    <string name="title_activity_home">HomeActivity</string>
+    <string name="title_activity_home">Kaadoo</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -27,4 +27,44 @@
         <item>A</item>
     </string-array>
     <string name="title_activity_add_pillar">AddPillarActivity</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">KAADOO</string>
+    <string name="wait_write_dialog_title">Write on NFC Tag</string>
+    <string name="wait_write_dialog_text">Aproach an NFC tag</string>
+    <string name="tag_written_toast">Tag written</string>
+    <string name="lat_pref_key">lat_pref_key</string>
+    <string name="lng_pref_key">lng_pref_key</string>
+    <string name="quotedesc">Please get your current location.</string>
+    <string name="species_of_tree">Species of tree</string>
+    <string name="date_of_plantation">Date of plantation</string>
+    <string name="hint_today">Today</string>
+    <string name="hint_tommarow">Tommarow</string>
+    <string name="view">View</string>
+
+    <string name="piller_name">Piller Name</string>
+    <string name="create_piller_id">Create piller Id</string>
+    <string name="bet_id">Bet Id</string>
+    <string name="lat">Latitude</string>
+    <string name="lng">longitude</string>
+    <string name="cancel">Cancel</string>
+
+
+    <string name="ERR_EMPTY_CLINIC_NAME_">Please enter clinic name.</string>
+    <string name="ERR_EMPTY_DOOR_NO">Enter Door No.</string>
+    <string name="ERR_EMPTY_STREET_NAME">Enter Street Name.</string>
+    <string name="ERR_EMPTY_PINCODE_NO">Enter Pincode.</string>
+    <string name="ERR_EMPTY_DOCTOR_CODE">Doctor Code should not be empty.</string>
+    <string name="ERR_EMPTY_GENDER">Please select your gender.</string>
+
+    <string name="ok">OK</string>
+    <string name="txt_edit">Edit</string>
+    <string name="message_write_error">Error Writing Message !</string>
+    <string name="message_write_success">Successfully written to Tag !</string>
+    <string name="message_write_progress">Writing to Tag..</string>
+    <string name="message_tag_detected">NFC Tag Detected !</string>
+    <string name="message_read_tag">Read from NFC Tag</string>
+    <string name="message_write_tag">Write to NFC Tag</string>
+    <string name="message_tap_tag">Tap the NFC Tag to your device !</string>
+    <string name="hint_message">Message</string>
 </resources>

@@ -16,9 +16,9 @@ public class SubDivisionResponse extends CommonModel {
      * response : {"status-code":"200 OK","error":"0","sys_msg":"","message":"Success"}
      */
 
-    private List<CircleRowData> content;
+    private List<SubDivisionRowData> content;
 
-    public List<CircleRowData> getContent() {
+    public List<SubDivisionRowData> getContent() {
         return content;
     }
 }

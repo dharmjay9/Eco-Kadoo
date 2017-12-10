@@ -18,7 +18,7 @@ public class CommonResponse {
 
     @SerializedName("status-code")
     private String statuscode;
-    private String error;
+    private int error;
     private String sys_msg;
     private String message;
 
@@ -30,11 +30,11 @@ public class CommonResponse {
         this.statuscode = statuscode;
     }
 
-    public String getError() {
+    public int getError() {
         return error;
     }
 
-    public void setError(String error) {
+    public void setError(int error) {
         this.error = error;
     }
 
