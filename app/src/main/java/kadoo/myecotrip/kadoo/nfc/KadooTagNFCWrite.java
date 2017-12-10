@@ -113,7 +113,7 @@ public class KadooTagNFCWrite extends BaseActivity {
             }
         });
 
-        setToolBar("Pillear Details");
+        setToolBar("Pillar Details");
 
     }
 

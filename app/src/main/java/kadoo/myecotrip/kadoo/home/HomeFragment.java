@@ -59,10 +59,10 @@ public class HomeFragment extends BaseFragment {
     public void setButtonText() {
 
         if (TextUtils.isEmpty(kadooLocalUser.getSelectedCategory())) {
-            actionButton.setText("START ADDING PILLEAR");
+            actionButton.setText("START ADDING PILLAR");
             btnAddNextPiller.setVisibility(View.GONE);
         } else {
-            actionButton.setText("COMPLETE ADDING PILLEAR");
+            actionButton.setText("COMPLETE ADDING PILLAR");
             btnAddNextPiller.setVisibility(View.VISIBLE);
 
         }

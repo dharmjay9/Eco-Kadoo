@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:background="@color/colorPrimary"
-        android:text="START ADDING Pillear "
+        android:text="START ADDING Piller "
         android:textAllCaps="true"
         android:textColor="@color/colorWhite" />
 
@@ -22,7 +22,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:background="@color/colorPrimary"
-        android:text="ADD NEXT PILLEAR"
+        android:text="ADD NEXT PILLAR"
         android:textAllCaps="true"
         android:textColor="@color/colorWhite" />
 

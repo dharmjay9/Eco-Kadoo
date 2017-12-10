@@ -69,7 +69,7 @@
             android:layout_above="@+id/btnWriteNFC"
             android:layout_marginTop="50dp"
             android:gravity="center"
-            android:text="PILLEAR ID"
+            android:text="PILLAR ID"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
@@ -97,7 +97,7 @@
         android:layout_marginTop="20dp"
         android:background="@color/colorPrimary"
         android:enabled="true"
-        android:text="ADD PILLEAR"
+        android:text="ADD PILLAR"
         android:textColor="@color/white" />
 
 

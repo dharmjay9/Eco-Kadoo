@@ -32,7 +32,7 @@ import kadoo.myecotrip.kadoo.network.RestClient;
 public class NFCOperationActivity extends BaseActivity implements Listener, OperationListener {
 
     public static final String TAG = NFCOperationActivity.class.getSimpleName();
-    public static final String PILLEAR_DETAILS = "pillear_data";
+    public static final String PILLEAR_DETAILS = "pillar_data";
 
     //private EditText mEtMessage;
     private Button mBtWrite;

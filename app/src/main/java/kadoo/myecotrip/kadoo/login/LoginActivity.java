@@ -52,8 +52,8 @@ public class LoginActivity extends BaseActivity {
 
         etPassawrd = findViewById(R.id.et_password);
         etUserName = findViewById(R.id.et_username);
-        //etPassawrd.setText("123");
-        // etUserName.setText("gopal.kumar353@gmail.com");
+        etPassawrd.setText("123");
+        etUserName.setText("gopal.kumar353@gmail.com");
         btnGo = findViewById(R.id.bt_go);
         btnGo.setOnClickListener(new View.OnClickListener() {
             @Override

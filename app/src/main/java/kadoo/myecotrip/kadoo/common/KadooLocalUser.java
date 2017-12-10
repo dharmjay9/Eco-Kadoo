@@ -15,7 +15,7 @@ public class KadooLocalUser {
     private static SharedPreferences sharedPreferences;
     private static KadooLocalUser kadooLocalUser;
     private static final String SELECTED_CATEGORY = "selected_category";
-    private static final String KADOO_USER = "kadoo_user";
+    private static final String KADOO_USER = "kaadoo_user";
 
 
     public static KadooLocalUser getInstance() {

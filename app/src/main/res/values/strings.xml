@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Kadoo</string>
+    <string name="app_name">Kaadoo</string>
     <string name="login_success">login success</string>
     <string name="login">LOGIN</string>
     <string name="Username">Username</string>
@@ -9,7 +9,7 @@
     <string name="repeat_password">Repeat Password</string>
     <string name="next">NEXT</string>
     <string name="register">REGISTER</string>
-    <string name="title_activity_home">Kadoo</string>
+    <string name="title_activity_home">Kaadoo</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -29,13 +29,13 @@
     <string name="title_activity_add_pillar">AddPillarActivity</string>
 
     <string name="dummy_button">Dummy Button</string>
-    <string name="dummy_content">KADOO</string>
+    <string name="dummy_content">KAADOO</string>
     <string name="wait_write_dialog_title">Write on NFC Tag</string>
     <string name="wait_write_dialog_text">Aproach an NFC tag</string>
     <string name="tag_written_toast">Tag written</string>
     <string name="lat_pref_key">lat_pref_key</string>
     <string name="lng_pref_key">lng_pref_key</string>
-    <string name="quotedesc">Welcome! Where should we deliver to?</string>
+    <string name="quotedesc">Please get your current location.</string>
     <string name="species_of_tree">Species of tree</string>
     <string name="date_of_plantation">Date of plantation</string>
     <string name="hint_today">Today</string>
