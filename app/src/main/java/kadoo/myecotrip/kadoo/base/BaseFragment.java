@@ -22,9 +22,9 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mRestClient=new RestClient();
-        restClient=new RestClient();
-        kadooLocalUser = KadooLocalUser.getInstance(getActivity());
+        mRestClient = new RestClient();
+        restClient = new RestClient();
+        kadooLocalUser = KadooLocalUser.getInstance();
 
     }
 
@@ -34,14 +34,14 @@ public abstract class BaseFragment extends Fragment {
         return super.onCreateView(inflater, container, savedInstanceState);
     }
 
-    protected void displayProgressDialog(){
-        mProgressDialog=new ProgressDialog(getActivity());
+    protected void displayProgressDialog() {
+        mProgressDialog = new ProgressDialog(getActivity());
         mProgressDialog.setMessage("Wait...");
         mProgressDialog.show();
     }
 
-    protected void hideProgressDialog(){
-        if(mProgressDialog!=null){
+    protected void hideProgressDialog() {
+        if (mProgressDialog != null) {
             mProgressDialog.dismiss();
         }
     }

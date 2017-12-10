@@ -1,11 +1,12 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="titleTextColor">#ffffff</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -17,6 +18,35 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="proceedButtonStyle">
+        <item name="android:textSize">@dimen/header_text</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/button_selector</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="TextStyleFullBlackSize" parent="android:TextAppearance.Large">
+        <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="fontPath">fonts/AVENIRLTSTD-BOOK.ttf</item>
+    </style>
+
+    <style name="TextStyleBlackSize" parent="android:TextAppearance.Large">
+        <item name="android:textColor">@color/half_black</item>
+        <item name="android:textSize">@dimen/large_text</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="fontPath">fonts/AVENIRLTSTD-BOOK.ttf</item>
+    </style>
+
+    <style name="TextStyleBlack" parent="android:TextAppearance.Large">
+        <item name="android:textColor">@color/half_black</item>
+        <item name="android:textSize">@dimen/head_title_text</item>
+        <item name="android:lineSpacingExtra">3dp</item>
+        <item name="fontPath">fonts/AVENIRLTSTD-BOOK.ttf</item>
+    </style>
+
     <style name="FullscreenTheme" parent="AppTheme">
         <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
         <item name="android:windowActionBarOverlay">true</item>
@@ -27,6 +57,10 @@
 
     <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
         <item name="android:background">@color/black_overlay</item>
+    </style>
+
+    <style name="toolBarTheme" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="colorControlNormal">@color/white</item>
     </style>
 
 </resources>

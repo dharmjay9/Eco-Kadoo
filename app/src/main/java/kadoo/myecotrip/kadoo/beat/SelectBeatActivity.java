@@ -1,7 +1,10 @@
 package kadoo.myecotrip.kadoo.beat;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,7 +16,9 @@ import java.util.List;
 
 import kadoo.myecotrip.kadoo.R;
 import kadoo.myecotrip.kadoo.base.BaseActivity;
+import kadoo.myecotrip.kadoo.beat.rowData.BeatResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.BeatRowData;
+import kadoo.myecotrip.kadoo.beat.rowData.BeatsRequest;
 import kadoo.myecotrip.kadoo.beat.rowData.CircleResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.CircleRowData;
 import kadoo.myecotrip.kadoo.beat.rowData.DivisionResponse;
@@ -22,11 +27,14 @@ import kadoo.myecotrip.kadoo.beat.rowData.RangeResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.RangeRowData;
 import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionRowData;
+import kadoo.myecotrip.kadoo.common.IConstant;
 import kadoo.myecotrip.kadoo.common.KadooLocalUser;
 import kadoo.myecotrip.kadoo.common.SelectedBeatData;
 import kadoo.myecotrip.kadoo.network.ErrorCodes;
 import kadoo.myecotrip.kadoo.network.KadooCallBack;
 import kadoo.myecotrip.kadoo.network.RestClient;
+import kadoo.myecotrip.kadoo.nfc.LocationActivity;
+
 
 public class SelectBeatActivity extends BaseActivity {
 
@@ -58,9 +66,18 @@ public class SelectBeatActivity extends BaseActivity {
             @Override
             public void onClick(View view) {
                 setData();
+                start(LocationActivity.class);
+
             }
         });
         setCircleData();
+        setToolBar("Select Category");
+
+    }
+
+    private void start(Class<? extends Activity> token) {
+        Intent intent = new Intent(this, token);
+        startActivity(intent);
     }
 
     private void setCircleData() {
@@ -184,6 +201,7 @@ public class SelectBeatActivity extends BaseActivity {
 
                         rangeId = String.valueOf(rangeRowDataList.get(i).getId());
                         rangeName = rangeRowDataList.get(i).getName();
+                        setBeats();
                     }
 
                     @Override
@@ -198,22 +216,28 @@ public class SelectBeatActivity extends BaseActivity {
     }
 
     private void setBeats() {
-        RestClient.getInstance().getCircle(new KadooCallBack<CircleResponse>() {
+
+        BeatsRequest beatsRequest = new BeatsRequest();
+        beatsRequest.setUsertype(IConstant.USER_TYPE);
+        beatsRequest.setId(Integer.parseInt(rangeId));
+        RestClient.getInstance().getBeats(beatsRequest, new KadooCallBack<BeatResponse>() {
             @Override
             public void onFailure(String s, ErrorCodes errorCodes) {
 
+                Log.i("", "");
             }
 
             @Override
-            public void onSuccess(CircleResponse circleResponse) {
+            public void onSuccess(BeatResponse beatResponse) {
 
-                ArrayAdapter<CircleRowData> arrayAdapter = new ArrayAdapter<CircleRowData>(SelectBeatActivity.this, android.R.layout.simple_list_item_1, circleResponse.getContent());
-                spCircle.setAdapter(arrayAdapter);
-                spCircle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                beatRowDataList = beatResponse.getContent();
+                ArrayAdapter<BeatRowData> arrayAdapter = new ArrayAdapter<BeatRowData>(SelectBeatActivity.this, android.R.layout.simple_list_item_1, beatRowDataList);
+                spBeats.setAdapter(arrayAdapter);
+                spBeats.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                        setDivisiondata();
+                        beatId = String.valueOf(beatRowDataList.get(i).getId());
+                        beatName = beatRowDataList.get(i).getName();
                     }
 
                     @Override
@@ -237,8 +261,8 @@ public class SelectBeatActivity extends BaseActivity {
         selectedBeatData.setRangeName(rangeName);
         selectedBeatData.setBeatId(beatId);
         selectedBeatData.setBeatName(beatName);
-        Gson gson=new Gson();
-        String data=gson.toJson(selectedBeatData);
+        Gson gson = new Gson();
+        String data = gson.toJson(selectedBeatData);
         kadooLocalUser.setSelectedCategory(data);
 
 

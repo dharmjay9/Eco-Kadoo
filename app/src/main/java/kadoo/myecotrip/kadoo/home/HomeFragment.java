@@ -13,6 +13,7 @@ import android.widget.Button;
 import kadoo.myecotrip.kadoo.R;
 import kadoo.myecotrip.kadoo.base.BaseFragment;
 import kadoo.myecotrip.kadoo.beat.SelectBeatActivity;
+import kadoo.myecotrip.kadoo.nfc.LocationActivity;
 
 /**
  * Created by Gopal kumar on 09-12-2017.
@@ -22,6 +23,7 @@ public class HomeFragment extends BaseFragment {
 
     private Button actionButton;
     private Button btnAddNextPiller;
+
 
     @Nullable
     @Override
@@ -33,6 +35,12 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 handleStartClick();
+            }
+        });
+        btnAddNextPiller.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getContext(), LocationActivity.class));
             }
         });
         setButtonText();
@@ -54,7 +62,7 @@ public class HomeFragment extends BaseFragment {
             actionButton.setText("START ADDING PILLEAR");
             btnAddNextPiller.setVisibility(View.GONE);
         } else {
-            actionButton.setText("STOP ADDING PILLEAR");
+            actionButton.setText("COMPLETE ADDING PILLEAR");
             btnAddNextPiller.setVisibility(View.VISIBLE);
 
         }

@@ -1,1 +1,2 @@
 include ':app', ':DaoGenrater'
+include ':app', ':permissionlib'

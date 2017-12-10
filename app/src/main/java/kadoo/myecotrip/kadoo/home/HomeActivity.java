@@ -1,5 +1,6 @@
 package kadoo.myecotrip.kadoo.home;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -14,14 +15,24 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 
 
 import kadoo.myecotrip.kadoo.R;
+import kadoo.myecotrip.kadoo.base.BaseActivity;
+import kadoo.myecotrip.kadoo.common.KadooAppUser;
+import kadoo.myecotrip.kadoo.login.KadooUser;
+import kadoo.myecotrip.kadoo.login.LoginActivity;
 
-public class HomeActivity extends AppCompatActivity
+public class HomeActivity extends BaseActivity
         implements NavigationView.OnNavigationItemSelectedListener, RefreshFragment {
 
     private HomeFragment homeFragment;
+
+    @Override
+    protected void initView() {
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,16 +40,6 @@ public class HomeActivity extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -51,6 +52,11 @@ public class HomeActivity extends AppCompatActivity
         FragmentTransaction ft = fragmentManager.beginTransaction();
         homeFragment = new HomeFragment();
         ft.replace(R.id.container, homeFragment).commit();
+        TextView tvUserNaem = navigationView.getHeaderView(0).findViewById(R.id.tvUserName);
+        TextView tvMobile = navigationView.getHeaderView(0).findViewById(R.id.tvMobile);
+        KadooAppUser kadooAppUser = KadooAppUser.getInstnace();
+        KadooUser kadooUser = kadooAppUser.getKadooAppUser();
+        tvUserNaem.setText(kadooUser.getDisplayName());
 
     }
 
@@ -91,6 +97,11 @@ public class HomeActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_log_out) {
+
+            kadooLocalUser.setUser("");
+            kadooLocalUser.setSelectedCategory("");
+            startActivity(new Intent(this, LoginActivity.class));
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

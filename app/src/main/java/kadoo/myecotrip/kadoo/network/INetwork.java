@@ -7,6 +7,8 @@ import kadoo.myecotrip.kadoo.beat.rowData.CircleResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.DivisionResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.RangeResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionResponse;
+import kadoo.myecotrip.kadoo.beats.AddBeatsRequest;
+import kadoo.myecotrip.kadoo.beats.AddBeatsResponse;
 import kadoo.myecotrip.kadoo.login.LoginRequest;
 import kadoo.myecotrip.kadoo.login.LoginResponse;
 
@@ -24,6 +26,8 @@ public interface INetwork {
     void getRange(String range, KadooCallBack<RangeResponse> circleResponseKadooCallBack);
 
     void getBeats(BeatsRequest beatsRequest, KadooCallBack<BeatResponse> circleResponseKadooCallBack);
+
+    void addBeats(AddBeatsRequest addBeatsRequest, KadooCallBack<AddBeatsResponse> kadooCallBack);
 
 
   /*  void doSignUp(RegisterRequest registerRequest, MyEcoTripCallBack<RegisterResponse> responseMyEcoTripCallBack);

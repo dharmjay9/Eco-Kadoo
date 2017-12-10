@@ -7,6 +7,9 @@ import android.os.Handler;
 import android.support.annotation.Nullable;
 
 
+import kadoo.myecotrip.kadoo.common.KadooAppUser;
+import kadoo.myecotrip.kadoo.home.HomeActivity;
+import kadoo.myecotrip.kadoo.home.HomeFragment;
 import kadoo.myecotrip.kadoo.login.LoginActivity;
 
 /**
@@ -23,10 +26,14 @@ public class SplashActivity extends Activity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                if (KadooAppUser.getInstnace().getKadooAppUser() == null)
+                    startActivity(new Intent(SplashActivity.this, LoginActivity.class));
+                else
+                    startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+
                 finish();
 
             }
-        }, 3000);
+        }, 2000);
     }
 }

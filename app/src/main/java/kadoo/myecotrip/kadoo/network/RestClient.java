@@ -9,6 +9,8 @@ import kadoo.myecotrip.kadoo.beat.rowData.CircleResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.DivisionResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.RangeResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionResponse;
+import kadoo.myecotrip.kadoo.beats.AddBeatsRequest;
+import kadoo.myecotrip.kadoo.beats.AddBeatsResponse;
 import kadoo.myecotrip.kadoo.login.LoginRequest;
 import kadoo.myecotrip.kadoo.login.LoginResponse;
 import okhttp3.OkHttpClient;
@@ -47,6 +49,8 @@ public class RestClient implements INetwork {
     @Override
     public void doLogin(LoginRequest registerRequest, KadooCallBack<LoginResponse> responseMyEcoTripCallBack) {
 
+        Call<LoginResponse> call = iNetwork.doLogin(registerRequest);
+        call.enqueue(new NetWorkCallBack<LoginResponse>(responseMyEcoTripCallBack));
     }
 
     @Override
@@ -83,6 +87,12 @@ public class RestClient implements INetwork {
 
         Call<BeatResponse> call = iNetwork.getBeats(beatsRequest);
         call.enqueue(new NetWorkCallBack<>(circleResponseKadooCallBack));
+    }
+
+    @Override
+    public void addBeats(AddBeatsRequest addBeatsRequest, KadooCallBack<AddBeatsResponse> kadooCallBack) {
+        Call<AddBeatsResponse> call = iNetwork.addPillears(addBeatsRequest);
+        call.enqueue(new NetWorkCallBack<>(kadooCallBack));
     }
 
 }

@@ -7,6 +7,8 @@ import kadoo.myecotrip.kadoo.beat.rowData.CircleResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.DivisionResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.RangeResponse;
 import kadoo.myecotrip.kadoo.beat.rowData.SubDivisionResponse;
+import kadoo.myecotrip.kadoo.beats.AddBeatsRequest;
+import kadoo.myecotrip.kadoo.beats.AddBeatsResponse;
 import kadoo.myecotrip.kadoo.login.LoginRequest;
 import kadoo.myecotrip.kadoo.login.LoginResponse;
 import retrofit2.Call;
@@ -18,7 +20,7 @@ import retrofit2.http.Query;
 
 interface ApiCall {
 
-    @POST
+    @POST("userSignIn")
     Call<LoginResponse> doLogin(@Body LoginRequest loginRequest);
 
     @GET("getCircles")
@@ -36,5 +38,8 @@ interface ApiCall {
 
     @POST("getBeats")
     Call<BeatResponse> getBeats(@Body BeatsRequest beatsRequest);
+
+    @POST("addPillars")
+    Call<AddBeatsResponse> addPillears(@Body AddBeatsRequest addBeatsRequest);
 
 }

@@ -4,58 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin"
     tools:context="kadoo.myecotrip.kadoo.beat.SelectBeatActivity">
+
+    <include layout="@layout/toolbar" />
 
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true">
+        android:layout_marginTop="?attr/actionBarSize"
+        android:fillViewport="true"
+        android:padding="@dimen/activity_horizontal_margin">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:paddingBottom="50dp"
             android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spinner_margin"
+                android:text="Select Circle"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spCircle"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="@dimen/spinner_margin"
                 android:entries="@array/ddummy" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spinner_margin"
+                android:text="Select Division"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spDivision"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="@dimen/spinner_margin"
                 android:entries="@array/ddummy" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spinner_margin"
+                android:text="Select SubDivision"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spSubDivision"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="@dimen/spinner_margin"
                 android:entries="@array/ddummy" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spinner_margin"
+                android:text="Select Range"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spRange"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="@dimen/spinner_margin"
                 android:entries="@array/ddummy" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/spinner_margin"
+                android:text="Select Beat"/>
 
             <android.support.v7.widget.AppCompatSpinner
                 android:id="@+id/spBeat"
                 style="@style/Base.Widget.AppCompat.Spinner.Underlined"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="@dimen/spinner_margin"
                 android:entries="@array/ddummy" />
 
         </LinearLayout>
@@ -68,7 +97,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
+        android:layout_margin="@dimen/activity_horizontal_margin"
         android:background="@color/colorPrimary"
-        android:text="CONFIRM"
+        android:text="SELECT CATEGORY"
         android:textColor="@color/colorWhite" />
 </RelativeLayout>
